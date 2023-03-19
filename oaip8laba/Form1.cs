@@ -166,7 +166,7 @@ namespace oaip8laba
                 textBox4.Enabled = false;
             }
         }
-        ///
+        /// 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
             
