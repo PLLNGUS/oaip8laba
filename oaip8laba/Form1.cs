@@ -19,6 +19,11 @@ namespace oaip8laba
         Circle circle;
         ShapeContainer shapeContainer;
         Init init;
+        Polygon polygon;
+        private int zhizhka = 0; 
+       /* int numPoints;*/
+        private Point[] pointFs;
+        bool flag;
         public Form1()
         {
             init = new Init();
@@ -35,9 +40,9 @@ namespace oaip8laba
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            button5.Enabled = false;
         }
-
+        //отрисовка фигур
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -113,7 +118,7 @@ namespace oaip8laba
 
             } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
-
+        //удаление
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -135,7 +140,7 @@ namespace oaip8laba
             }catch(Exception Ex ) { MessageBox.Show(Ex.Message);
             }
         }
-
+        //перемещение
         private void button3_Click(object sender, EventArgs e)
         {
             try
@@ -161,9 +166,12 @@ namespace oaip8laba
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Enabled == true)
+            if (radioButton1.Enabled == true)//квадрат
             {
                 textBox4.Enabled = false;
+                textBox4.Enabled = true;
+                textBox3.Enabled = true;
+                button1.Enabled = true;
             }
         }
         /// 
@@ -174,20 +182,160 @@ namespace oaip8laba
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            textBox4.Enabled=true;
+            textBox4.Enabled = true;//прямоугольник
+            textBox4.Enabled = true;
+            textBox3.Enabled = true;
+            button1.Enabled = true;
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
+            textBox4.Enabled = true;//эллипс
             textBox4.Enabled = true;
+            textBox3.Enabled = true;
+            button1.Enabled = true;
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton4.Enabled == true)
+            if (radioButton4.Enabled == true)//круг
             {
                 textBox4.Enabled = false;
             }
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //расстановка точек
+       
+        int tochka = 0;
+        private void button4_Click(object sender, EventArgs e)
+        {
+            {
+                
+                try
+                {
+                    zhizhka = int.Parse(textBox5.Text);
+                    if(flag == false)
+                    {
+                    label9.Text = $"Введите координаты {tochka + 1}-й точки: ";
+                    this.pointFs = new Point[zhizhka];
+                        flag = true;
+                    }
+                    else
+                    {
+                        if (tochka  < zhizhka - 1)
+                        {
+                            label9.Text = $"Введите координаты {tochka + 2}-й точки: ";
+                            this.pointFs[tochka].X = int.Parse(textBox1.Text);
+                    this.pointFs[tochka].Y = int.Parse(textBox2.Text);
+                   tochka++;
+                            
+                        }
+                        else
+                        {
+                            this.pointFs[tochka].X = int.Parse(textBox1.Text);
+                            this.pointFs[tochka].Y = int.Parse(textBox2.Text);
+                            flag = false;
+                            tochka = 0;
+                            label9.Text = "Фигура отрисована";
+                            button5.Enabled = true;
+                        }
+                    }
+
+                    
+            /*  }
+                else
+                {
+                    numPoints = int.Parse(textBox5.Text);
+                    if (i != numPoints - 1)
+                    {
+                        i++;
+                        label9.Text = $"Введите координаты {i + 1}-й точки: ";
+                        Init.pointFs[i].X = int.Parse(textBox1.Text);
+                        Init.pointFs[i].Y = int.Parse(textBox2.Text);
+                    }
+                    else
+                    {
+                        button4.Enabled = false;
+                        button5.Enabled = true;
+                        flag = false;
+                    }
+
+                }*/
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            } 
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        //отрисовка полигона
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked)
+            {
+
+                polygon = new Polygon(this.pointFs);
+
+                ShapeContainer.AddFigure(this.polygon);
+                polygon.Draw();
+                comboBox1.Items.Clear();
+                try
+                {
+                    foreach (Figure figure in ShapeContainer.figureList)
+                    {
+                        comboBox1.Items.Add(figure);
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+                button5.Enabled=false;
+            }
+
+            /*  Graphics g = Graphics.FromImage(Init.bitmap);
+              polygon = new Polygon(int.Parse(textBox1.Text), int.Parse(textBox2.Text));
+              ShapeContainer.AddFigure(this.polygon);
+              polygon.Draw();*/
+
+
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton5.Enabled == true)
+            {
+                textBox4.Enabled = false;//многоугольник
+                textBox3.Enabled = false;
+                button1.Enabled = false;
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
-}
+    }
+
+
+
