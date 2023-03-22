@@ -20,6 +20,7 @@ namespace oaip8laba
         ShapeContainer shapeContainer;
         Init init;
         Polygon polygon;
+        Ship ship;
         private int zhizhka = 0; 
        /* int numPoints;*/
         private Point[] pointFs;
@@ -116,6 +117,23 @@ namespace oaip8laba
                     catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
 
+                if (radioButton6.Checked)
+                {
+                    ship  = new Ship(int.Parse(textBox1.Text),
+                int.Parse(textBox2.Text),
+        int.Parse(textBox3.Text), int.Parse(textBox4.Text));
+                    ShapeContainer.AddFigure(this.ship);
+                    ship.Draw();
+                    comboBox1.Items.Clear();
+                    try
+                    {
+                        foreach (Figure figure in ShapeContainer.figureList)
+                        {
+                            comboBox1.Items.Add(figure);
+                        }
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                }
             } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
         //удаление

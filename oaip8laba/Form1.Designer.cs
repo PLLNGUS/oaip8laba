@@ -56,6 +56,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +86,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(542, 179);
+            this.textBox3.Location = new System.Drawing.Point(856, 159);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 3;
@@ -93,7 +94,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(542, 205);
+            this.textBox4.Location = new System.Drawing.Point(856, 185);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 4;
@@ -130,7 +131,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(649, 182);
+            this.label3.Location = new System.Drawing.Point(956, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 8;
@@ -139,7 +140,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(649, 208);
+            this.label4.Location = new System.Drawing.Point(956, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 9;
@@ -326,11 +327,23 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(852, 98);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(68, 17);
+            this.radioButton6.TabIndex = 29;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "Корабль";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 754);
+            this.Controls.Add(this.radioButton6);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox5);
@@ -398,6 +411,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.RadioButton radioButton6;
     }
 }
 

@@ -27,27 +27,43 @@ namespace oaip8laba
 
         public override void MoveTo(int x, int y)
         {
-           /* int max;
-            int min;
-         for(int i = 0; i < pointFs.Length; i++)
+            try
             {
-                
-            }*/
-
-        if (!((this.x + x< 0 && this.y + y< 0)
-        || (this.y + y< 0)
-        || (this.x + x > Init.pictureBox.Width && this.y + y< 0)
-        || (this.x + this.w + x > Init.pictureBox.Width)
-        || (this.x + x > Init.pictureBox.Width && this.y + y > Init.pictureBox.Height)
-        || (this.y + this.h + y > Init.pictureBox.Height)
-        || (this.x + x< 0 && this.y + y>
-        Init.pictureBox.Height) || (this.x + x< 0)))
-        {
-                this.x += x;
-                this.y += y;
-                this.DeleteF(this, false);
-                this.Draw();
+                bool bruh = false;
+                for (int i = 0; i < pointFs.Length; i++)
+                {
+                    bruh = false;
+                    if (!((this.pointFs[i].X + x > Init.pictureBox.Width && this.pointFs[i].Y + y > Init.pictureBox.Height)
+                        || (this.pointFs[i].X + x > Init.pictureBox.Width && this.pointFs[i].Y + y < 0)
+                        || (this.pointFs[i].X + x < 0 && this.pointFs[i].Y + y > Init.pictureBox.Height)
+                        || (this.pointFs[i].X + x < 0 && this.pointFs[i].Y + y < 0)
+                        || (this.pointFs[i].X + x > Init.pictureBox.Width)
+                        || (this.pointFs[i].Y + y > Init.pictureBox.Height)
+                        || (this.pointFs[i].X + x < 0)
+                        || (this.pointFs[i].Y + y < 0)))
+                    {
+                        bruh = true;
+                    }
+                    if (!bruh)
+                    {
+                        throw new Exception();
+                    }
                 }
+                if (bruh)
+                {
+                    for (int j = 0; j < pointFs.Length; j++)
+                    {
+                        this.pointFs[j].X += x;
+                        this.pointFs[j].Y += y;
+                    }
+                    this.DeleteF(this, false);
+                    this.Draw();
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
         }
 
       
