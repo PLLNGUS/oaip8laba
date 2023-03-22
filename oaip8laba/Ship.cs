@@ -22,8 +22,8 @@ namespace oaip8laba
             this.PointF[2] = new PointF(this.x+this.w-this.h/5, this.y+this.h/4);
             this.PointF[3] = new PointF(this.x + this.h/5, this.y + this.h/4);
             this.PointF1[0] = new PointF(this.x + this.w / 2, this.y - (this.h / 3) * 2);
-            this.PointF1[1] = new PointF(this.x + this.w / 2, this.y - (this.h / 3) * 2 + this.h/6);
-            this.PointF1[2] = new PointF(this.x + this.w / 2 - this.w/10, this.y - (this.h / 3) * 2   );
+            this.PointF1[1] = new PointF(this.x + this.w / 2, this.y - (this.h / 8) * 2 + this.h/6);
+            this.PointF1[2] = new PointF(this.x + this.w  - this.w/10, this.y - (this.h / 15) * 2   );
             Graphics g = Graphics.FromImage(Init.bitmap);
             g.DrawPolygon(Init.pen, this.PointF);
             g.DrawPolygon(Init.pen, this.PointF1);
@@ -39,7 +39,7 @@ namespace oaip8laba
           0) || (this.x + this.w + x > Init.pictureBox.Width)
           || (this.x + x > Init.pictureBox.Width && this.y + y >
           Init.pictureBox.Height)
-          || (this.y + this.h + y > Init.pictureBox.Height)
+          || (this.PointF1[1].Y + this.h + y > Init.pictureBox.Height)
 
           || (this.x + x < 0 && this.y + y >
           Init.pictureBox.Height) || (this.x + x < 0)))
